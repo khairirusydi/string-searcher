@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 var fs = require('fs');
 
-// recursively get all files in directory
 const getAllFiles = (dir, currentArrayOfFiles) => {
   const newArrayOfFiles = currentArrayOfFiles || [];
   const dirItems = fs.readdirSync(dir);
@@ -16,13 +15,19 @@ const getAllFiles = (dir, currentArrayOfFiles) => {
   return newArrayOfFiles;
 };
 
-const mainApp = () => {
-  const dir = process.cwd();
-  // const searchString = process.argv[2] || 'TODO';
-
-  const files = getAllFiles(dir);
-
-  return files;
+const searchFileForKeyword = (file, keyword) => {
+  fs.readFile(file, (err, data) => {
+    if (err) throw err;
+    if (data.includes(keyword)) console.log(file);
+  });
 };
 
-console.log(mainApp().join('\r\n'));
+const mainApp = () => {
+  const dir = process.cwd();
+  const searchString = process.argv[2] || 'TODO';
+
+  const allFiles = getAllFiles(dir);
+  allFiles.forEach(file => searchFileForKeyword(file, searchString));
+};
+
+mainApp();
