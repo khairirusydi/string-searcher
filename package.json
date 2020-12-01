@@ -1,0 +1,14 @@
+{
+  "name": "string-searcher",
+  "version": "1.0.0",
+  "description": "produce list of all files containing a keyword in a given directory",
+  "main": "index.js",
+  "bin": {
+    "string-searcher": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "khairirusydi",
+  "license": "ISC"
+}
