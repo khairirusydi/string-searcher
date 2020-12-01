@@ -51,3 +51,15 @@ assuming all of the files contains the text string `"TODO"`, the application sho
 /path/to/your/dir/somedir3/another_file.js
 ```
 
+## Tests
+
+### Manual Test
+cd into `string-searcher/test/mock` and run `string-searcher`. The following output should appear:
+```
+your-dir/string-searcher/test/mock/somedir2/anotherdir/yet_another_dir/index.js
+your-dir/string-searcher/test/mock/somedir3/another_file.js
+```
+
+### Test using Jest
+1. cd into the project directory and run `npm install` to install dependencies.
+2. run `npm test` to run the Jest tests.

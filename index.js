@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var fs = require('fs');
+const fs = require('fs');
 
 const getAllFiles = (dir, currentArrayOfFiles) => {
   const newArrayOfFiles = currentArrayOfFiles || [];
@@ -22,12 +22,17 @@ const searchFileForKeyword = (file, keyword) => {
   });
 };
 
-const mainApp = () => {
-  const dir = process.cwd();
-  const searchString = process.argv[2] || 'TODO';
-
+const mainApp = (dir, searchString) => {
   const allFiles = getAllFiles(dir);
   allFiles.forEach(file => searchFileForKeyword(file, searchString));
 };
 
-mainApp();
+module.exports = {
+  mainApp,
+  getAllFiles,
+  searchFileForKeyword
+};
+
+if (require.main === module) {
+  mainApp(process.cwd(), process.argv[2] || 'TODO');
+};
