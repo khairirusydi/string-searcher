@@ -9,9 +9,13 @@ is "TODO" and is case-sensitive.
 ```
 git clone https://github.com/khairirusydi/string-searcher.git
 ```
-2. Install package globally:
+2. cd into project directory:
 ```
-npm install -g string-searcher
+cd string-searcher
+```
+3. Install package globally:
+```
+npm install -g .
 ```
 
 ## Usage
